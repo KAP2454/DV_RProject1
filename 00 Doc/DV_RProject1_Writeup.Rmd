@@ -1,0 +1,70 @@
+---
+title: "DV_RProject1"
+author: "Probe, Yudkin, Honganen"
+date: "Friday, January 30, 2015"
+output: html_document
+---
+
+##**Step 1:** Load the required packages and data from the database
+
+```{r}
+
+library("bitops")
+library("RCurl")
+
+dfCustomers <- data.frame(eval(parse(text=substring(getURL(URLencode('http://129.152.144.84:5001/rest/native/?query="select * from customers"'), httpheader=c(DB='jdbc:oracle:thin:@129.152.144.84:1521/PDB1.usuniversi01134.oraclecloud.internal', USER='DV_ORDERS', PASS='orcl', MODE='native_mode', MODEL='model', returnFor = 'R', returnDimensions = 'False'), verbose = TRUE), 1, 2^31-1))))
+
+
+dfOrderDetails <- data.frame(eval(parse(text=substring(getURL(URLencode('http://129.152.144.84:5001/rest/native/?query="select * from order_details"'), httpheader=c(DB='jdbc:oracle:thin:@129.152.144.84:1521/PDB1.usuniversi01134.oraclecloud.internal', USER='DV_ORDERS', PASS='orcl', MODE='native_mode', MODEL='model', returnFor = 'R', returnDimensions = 'False'), verbose = TRUE), 1, 2^31-1))))
+
+dfItems <- data.frame(eval(parse(text=substring(getURL(URLencode('http://129.152.144.84:5001/rest/native/?query="select * from items"'), httpheader=c(DB='jdbc:oracle:thin:@129.152.144.84:1521/PDB1.usuniversi01134.oraclecloud.internal', USER='DV_ORDERS', PASS='orcl', MODE='native_mode', MODEL='model', returnFor = 'R', returnDimensions = 'False'), verbose = TRUE), 1, 2^31-1))))
+
+dfOrders <- data.frame(eval(parse(text=substring(getURL(URLencode('http://129.152.144.84:5001/rest/native/?query="select * from orders"'), httpheader=c(DB='jdbc:oracle:thin:@129.152.144.84:1521/PDB1.usuniversi01134.oraclecloud.internal', USER='DV_ORDERS', PASS='orcl', MODE='native_mode', MODEL='model', returnFor = 'R', returnDimensions = 'False'), verbose = TRUE), 1, 2^31-1))))
+
+```
+
+##**Step 2:** Display the data frames
+
+###Customers Dataframe
+```{r}
+print(dfCustomers)
+
+```
+
+###Order Details Dataframe
+```{r}
+print(dfOrderDetails)
+
+```
+
+###Items Dataframe
+```{r}
+print(dfItems)
+
+```
+
+###Orders Dataframe
+```{r}
+print(dfOrders)
+
+```
+
+##**Step 3:** Load the library and produce an interesting plot for each dataframe
+
+```{r}
+library("ggplot2")
+```
+
+###Customers Chart - Customers by State
+
+```{r}
+
+
+ggplot(dfCustomers, aes(x =CUSTOMER_STATE, y =CUSTOMER_CITY))+geom_bar()
+```
+
+###Order Details Chart - Orders by Item
+
+###Items Chart - Price Distribution
+
+###Orders Dataframe - Orders by Month
