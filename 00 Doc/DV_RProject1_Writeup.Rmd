@@ -9,17 +9,10 @@ output: html_document
 
 ```{r}
 
-library("bitops")
-library("RCurl")
+source("../01 Data/Load_Packages.R", echo = TRUE)
 
-dfCustomers <- data.frame(eval(parse(text=substring(getURL(URLencode('http://129.152.144.84:5001/rest/native/?query="select * from customers"'), httpheader=c(DB='jdbc:oracle:thin:@129.152.144.84:1521/PDB1.usuniversi01134.oraclecloud.internal', USER='DV_ORDERS', PASS='orcl', MODE='native_mode', MODEL='model', returnFor = 'R', returnDimensions = 'False'), verbose = TRUE), 1, 2^31-1))))
+source("../01 Data/Load_Data_Frames.R", echo = TRUE)
 
-
-dfOrderDetails <- data.frame(eval(parse(text=substring(getURL(URLencode('http://129.152.144.84:5001/rest/native/?query="select * from order_details"'), httpheader=c(DB='jdbc:oracle:thin:@129.152.144.84:1521/PDB1.usuniversi01134.oraclecloud.internal', USER='DV_ORDERS', PASS='orcl', MODE='native_mode', MODEL='model', returnFor = 'R', returnDimensions = 'False'), verbose = TRUE), 1, 2^31-1))))
-
-dfItems <- data.frame(eval(parse(text=substring(getURL(URLencode('http://129.152.144.84:5001/rest/native/?query="select * from items"'), httpheader=c(DB='jdbc:oracle:thin:@129.152.144.84:1521/PDB1.usuniversi01134.oraclecloud.internal', USER='DV_ORDERS', PASS='orcl', MODE='native_mode', MODEL='model', returnFor = 'R', returnDimensions = 'False'), verbose = TRUE), 1, 2^31-1))))
-
-dfOrders <- data.frame(eval(parse(text=substring(getURL(URLencode('http://129.152.144.84:5001/rest/native/?query="select * from orders"'), httpheader=c(DB='jdbc:oracle:thin:@129.152.144.84:1521/PDB1.usuniversi01134.oraclecloud.internal', USER='DV_ORDERS', PASS='orcl', MODE='native_mode', MODEL='model', returnFor = 'R', returnDimensions = 'False'), verbose = TRUE), 1, 2^31-1))))
 
 ```
 
@@ -27,32 +20,34 @@ dfOrders <- data.frame(eval(parse(text=substring(getURL(URLencode('http://129.15
 
 ###Customers Dataframe
 ```{r}
-print(dfCustomers)
+
+head(dfCustomers)
 
 ```
 
 ###Order Details Dataframe
 ```{r}
-print(dfOrderDetails)
+
+head(dfOrderDetails)
 
 ```
 
 ###Items Dataframe
 ```{r}
-print(dfItems)
+head(dfItems)
 
 ```
 
 ###Orders Dataframe
 ```{r}
-print(dfOrders)
+head(dfOrders)
 
 ```
 
 ##**Step 3:** Load the library and produce an interesting plot for each dataframe
 
 ```{r}
-library("ggplot2")
+
 ```
 
 ###Customers Chart - Customers by State
