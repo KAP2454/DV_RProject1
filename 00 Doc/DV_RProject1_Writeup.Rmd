@@ -70,7 +70,7 @@ source("../02 Visualizations/Interesting_Items.R", echo = TRUE)
 ```
 
 
-###Orders Dataframe - Orders by Month
+###Orders Chart - Orders by Month
 ```{r}
 
 source("../02 Visualizations/Interesting_Orders.R", echo = TRUE)
