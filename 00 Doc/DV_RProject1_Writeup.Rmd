@@ -5,7 +5,7 @@ date: "Friday, January 30, 2015"
 output: html_document
 ---
 
-##**Step 1:** Load the required packages and data from the database
+##**Step 1:** Load the required packages and data
 
 ```{r}
 
@@ -44,22 +44,35 @@ head(dfOrders)
 
 ```
 
-##**Step 3:** Load the library and produce an interesting plot for each dataframe
-
-```{r}
-
-```
+##**Step 3:** Produce an interesting plot for each dataframe
 
 ###Customers Chart - Customers by State
 
 ```{r}
 
+source("../02 Visualizations/Interesting_Customers.R", echo = TRUE)
 
-ggplot(dfCustomers, aes(x =CUSTOMER_STATE, y =CUSTOMER_CITY))+geom_bar()
 ```
 
 ###Order Details Chart - Orders by Item
 
+```{r}
+
+source("../02 Visualizations/Interesting_OrderDetails.R", echo = TRUE)
+
+```
+
 ###Items Chart - Price Distribution
+```{r}
+
+source("../02 Visualizations/Interesting_Items.R", echo = TRUE)
+
+```
+
 
 ###Orders Dataframe - Orders by Month
+```{r}
+
+source("../02 Visualizations/Interesting_Orders.R", echo = TRUE)
+
+```
