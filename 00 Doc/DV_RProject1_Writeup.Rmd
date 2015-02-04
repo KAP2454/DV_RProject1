@@ -76,3 +76,14 @@ source("../02 Visualizations/Interesting_Items.R", echo = TRUE)
 source("../02 Visualizations/Interesting_Orders.R", echo = TRUE)
 
 ```
+
+##**Step 4:** Query the Database and Generate Specified Plots
+
+```{r}
+
+source("../01 Data/Load_Data_Frames2.R", echo = TRUE)
+
+source("../02 Visualizations/Reproduce_Plots.R", echo = TRUE)
+
+```
+
